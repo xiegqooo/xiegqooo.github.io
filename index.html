@@ -1,0 +1,157 @@
+﻿<html>
+<head>
+<title>绝对定位</title>
+<style type="text/css">
+#absolute{
+	position:absolute;
+	left:100px;
+	top:150px;
+	font-size:24px;
+}
+#fixed{
+	position:fixed;
+	font-size:24px;
+	right:30px;
+	bottom:10px;
+	border-color: transparent;
+}
+/*表格样式。*/  
+.table {  
+    width:100%;  
+    padding: 0px;  
+    margin: 0px;  
+    font-family:Arial, Tahoma, Verdana, Sans-Serif,宋体;  
+    border-left:1px solid #ADD8E6;  
+    border-collapse:collapse;  
+}  
+  
+/*表头样式。*/  
+.table th {  
+    font-size:12px;  
+    font-weight:600;  
+    color: #303030;  
+    border-right: 1px solid #ADD8E6;  
+    border-bottom: 1px solid #ADD8E6;  
+    border-top: 1px solid #ADD8E6;  
+    letter-spacing: 2px;  
+    text-align: left;  
+    padding: 10px 0px 10px 0px;  
+    background: url(../images/tablehdbg.png);  
+    white-space:nowrap;  
+    text-align:center;  
+    overflow: hidden;  
+}  
+  
+/*单元格样式。*/  
+.table td {  
+    border-right: 1px solid #ADD8E6;  
+    border-bottom: 1px solid #ADD8E6;  
+    background: #fff;  
+    font-size:12px;  
+    padding: 3px 3px 3px 6px;  
+    color: #303030;  
+    word-break:break-all;  
+    word-wrap:break-word;  
+    white-space:normal;  
+}  
+  
+/*蓝色单元格样式，主要用于隔行变色。*/  
+.table td.color{  
+    background:#edf7f9;  
+}  
+  
+/*表格中超级链接样式。*/  
+.table td a:link{  
+    font-weight:400 ;  
+    color:#2259D7 ;  
+    text-decoration:none  ;  
+    word-break:break-all;  
+    word-wrap:break-word;  
+    white-space:normal;  
+}  
+  
+.table td a:visited {  
+    font-weight:400 ;  
+    color:#2259D7 ;  
+    text-decoration:none  ;  
+    word-break:break-all;  
+    word-wrap:break-word;  
+    white-space:normal;  
+}  
+  
+.table td a:hover {  
+    font-weight:400 ;  
+    text-decoration:underline ;  
+    color: #303030;  
+    word-break:break-all;  
+    word-wrap:break-word;  
+    white-space:normal;  
+}  
+  
+.table td a:active {  
+    font-weight:400 ;  
+    text-decoration:none  ;  
+    color:#2259D7 ;  
+    word-break:break-all;  
+    word-wrap:break-word;  
+    white-space:normal;  
+}  
+</style>
+
+
+</head>
+
+<body>
+
+
+<h3>css定位</h3>
+<ol>
+	<li>普通流</li>
+	<li>浮动</li>
+	<li>绝对定位</li>
+	<li>相对定位</li>
+</ol>
+
+
+<p id="absolute">绝对定位</p>
+
+<p id="fixed" style="background:#DFE0DF;">固定布局</p>
+
+<table class="table">
+	<tr>
+		<th>dd</th>
+		<th>dd</th>
+	</tr>
+	<tr>
+		<td>头</td>
+		<td>标</td>
+	</tr>
+	<tr>
+		<td>头2</td>
+		<td>标3</td>
+	</tr>
+	
+</table>
+
+<br/>
+<div style="border:1px solid #75DC81;">
+<p style="margin:0px;padding:4px 12px;background:#75DC81;color:#fff;font-size:14px;"><b>标题</b></p>
+<div style="padding:4px 12px;">
+	<p style="margin:3px 18px;padding:0px;">
+		内容
+	</p>
+	<div style="border-bottom:1px dashed #BED2E4;"></div>
+</div>
+</div>
+
+<input type="file" title="" />
+
+<style>
+input[type=file] {
+title:none;
+font-size:24px;
+}
+</style>
+
+</body>
+</html>
