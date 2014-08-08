@@ -1,157 +1,337 @@
-﻿<html>
+﻿<!DOCTYPE html> 
+<html>
 <head>
-<title>绝对定位</title>
-<style type="text/css">
-#absolute{
-	position:absolute;
-	left:100px;
-	top:150px;
-	font-size:24px;
-}
-#fixed{
-	position:fixed;
-	font-size:24px;
-	right:30px;
-	bottom:10px;
-	border-color: transparent;
-}
-/*表格样式。*/  
-.table {  
-    width:100%;  
-    padding: 0px;  
-    margin: 0px;  
-    font-family:Arial, Tahoma, Verdana, Sans-Serif,宋体;  
-    border-left:1px solid #ADD8E6;  
-    border-collapse:collapse;  
-}  
-  
-/*表头样式。*/  
-.table th {  
-    font-size:12px;  
-    font-weight:600;  
-    color: #303030;  
-    border-right: 1px solid #ADD8E6;  
-    border-bottom: 1px solid #ADD8E6;  
-    border-top: 1px solid #ADD8E6;  
-    letter-spacing: 2px;  
-    text-align: left;  
-    padding: 10px 0px 10px 0px;  
-    background: url(../images/tablehdbg.png);  
-    white-space:nowrap;  
-    text-align:center;  
-    overflow: hidden;  
-}  
-  
-/*单元格样式。*/  
-.table td {  
-    border-right: 1px solid #ADD8E6;  
-    border-bottom: 1px solid #ADD8E6;  
-    background: #fff;  
-    font-size:12px;  
-    padding: 3px 3px 3px 6px;  
-    color: #303030;  
-    word-break:break-all;  
-    word-wrap:break-word;  
-    white-space:normal;  
-}  
-  
-/*蓝色单元格样式，主要用于隔行变色。*/  
-.table td.color{  
-    background:#edf7f9;  
-}  
-  
-/*表格中超级链接样式。*/  
-.table td a:link{  
-    font-weight:400 ;  
-    color:#2259D7 ;  
-    text-decoration:none  ;  
-    word-break:break-all;  
-    word-wrap:break-word;  
-    white-space:normal;  
-}  
-  
-.table td a:visited {  
-    font-weight:400 ;  
-    color:#2259D7 ;  
-    text-decoration:none  ;  
-    word-break:break-all;  
-    word-wrap:break-word;  
-    white-space:normal;  
-}  
-  
-.table td a:hover {  
-    font-weight:400 ;  
-    text-decoration:underline ;  
-    color: #303030;  
-    word-break:break-all;  
-    word-wrap:break-word;  
-    white-space:normal;  
-}  
-  
-.table td a:active {  
-    font-weight:400 ;  
-    text-decoration:none  ;  
-    color:#2259D7 ;  
-    word-break:break-all;  
-    word-wrap:break-word;  
-    white-space:normal;  
-}  
-</style>
-
-
-</head>
-
-<body>
-
-
-<h3>css定位</h3>
-<ol>
-	<li>普通流</li>
-	<li>浮动</li>
-	<li>绝对定位</li>
-	<li>相对定位</li>
-</ol>
-
-
-<p id="absolute">绝对定位</p>
-
-<p id="fixed" style="background:#DFE0DF;">固定布局</p>
-
-<table class="table">
-	<tr>
-		<th>dd</th>
-		<th>dd</th>
-	</tr>
-	<tr>
-		<td>头</td>
-		<td>标</td>
-	</tr>
-	<tr>
-		<td>头2</td>
-		<td>标3</td>
-	</tr>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width , initial-scale=1.0 , user-scalable=0 , minimum-scale=1.0 , maximum-scale=1.0" />
+<title>贝安移动安全管理系统</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/tools.js"></script>
+</head> 
+<body> 
+<!-- header -->
+    <div class="header">
+        <img  src="image/logo.png" alt="贝安移动" title="贝安移动管理" height="38" width="304">
+    </div>
+<!-- context -->    
+    <div class="context">
+    	<div  class="center">
+            <div class="img"><img src="image/billboard.png" height="330" width="690"/></div>        
+            <div class="login">
+         
+                	<input class="username" name="username" />
+                    <input class="passowrd" type="password" name="password"/>
+                    <input id="code" name="code"  />
+                    <img  id="codeImg" src="#" title="看不清，点击换一张"/>
+                    <input id="submit" class="submit" type="button" value=""/>
+         
+            </div>
+        </div>
+    </div>
+<!-- footer -->    
+    <div class="footer">
+       Copyright &copy; 联信摩贝软件(北京)有限公司 2008-<span id="lastyear"></span> 版权所有
+      
+<!--         <img src="image/footer-barr.png" alt="联信摩贝软件(北京)有限公司"/> -->
+    </div>
 	
-</table>
+<!-- 提交提示 -->
+<div class="loading-bar"><div></div></div>
+<div class="info-bar hide"><div>Error</div><sup>×</sup></div>
 
-<br/>
-<div style="border:1px solid #75DC81;">
-<p style="margin:0px;padding:4px 12px;background:#75DC81;color:#fff;font-size:14px;"><b>标题</b></p>
-<div style="padding:4px 12px;">
-	<p style="margin:3px 18px;padding:0px;">
-		内容
-	</p>
-	<div style="border-bottom:1px dashed #BED2E4;"></div>
-</div>
-</div>
+<script type="text/javascript">
 
-<input type="file" title="" />
+// 网站根目录
+var baseHref = '#';
+// 登录错认次数
+var codeInputCount = <?php echo $_SESSION['lt'];?>;
 
-<style>
-input[type=file] {
-title:none;
-font-size:24px;
+// 提交到后台验证
+function submitForm() {
+	// 变量
+	var xhr
+	  , url = baseHref
+	  , delta = .25;
+	  
+	// 去掉字符串的前后空格
+	var une =  $.trim($("input[name=username]").val()); 
+	var pwd = $("input[name=password]").val();
+	// 非空判断
+	if(une == ''){
+		Tool.info.show('用户名不能为空!', function(){});
+		$('input[name=username]').focus();
+		return  ;
+	}
+	if(pwd == ''){
+		Tool.info.show('密码不能为空!', function(){});
+		$('input[name=password]').focus();
+		return  ;
+	}
+	 
+	// 判断浏览器
+	if(window.addEventListener){
+		 xhr = new XMLHttpRequest;
+	}else{
+		 xhr = new ActiveXObject("Msxml2.XMLHTTP");
+	}
+    
+	// 设置请求内容
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	// 回调
+	xhr.onreadystatechange = function(){
+		// 变量处理
+		var res , errno , msg , noop = function(){};
+		
+		// 状态处理
+		if(xhr.readyState == 4 && xhr.status == 200) {
+			res = eval('(' + xhr.responseText + ')');
+			//errno = 'ddd';
+			//msg = 'eee';
+	
+			// 标记
+			switch(res.loginFlag){
+				case 0 :
+					
+						// 验证码不正解
+						$('#code').focus();
+						// 清空内容
+						$('#code').val('');
+						
+						msg = '验证码不正解';
+					
+					break;
+				case 1 :
+					
+						// 用户名或密码不正解
+						$('input[name=username]').focus();
+						// 清空内容
+						$('input[name=password]').val('');
+						
+						msg = '用户名或密码不正解';
+					
+					break;
+				case 2 :
+								
+					// 管理员登录
+					var _href = "main.php" + res.encodeName;;
+					
+					// 用户登录
+					if (res.userType == "user") {
+						_href = "#"
+					}
+					// 跳转页面						
+					window.location.replace( baseHref + _href);
+					break;
+				default:
+					break;
+			}
+			// 错误次数
+			var count = parseInt(res.loginTimes);
+			if(count > 3){
+				$('#codeImg').show();
+				$('#code').show();
+				$('#code').first().trigger("show");
+			}
+			
+			
+		}
+		// 加载显示
+		Tool.load(delta * xhr.readyState, function(){
+			// 显示提示信息
+			Tool.info.show(msg, noop);
+		});
+	};
+		
+	// 获取参数
+	var params = $.param({"userName":une
+	,"passWord":pwd
+	, "code":$("#code").val() 
+	,"_dc" : new Date().getTime()});
+	
+	// 发送请求
+	xhr.send(params);
 }
-</style>
+
+// 页面加载完成后处理
+$(document).ready(function(e) {
+	
+	// 设置年显示
+	$('#lastyear').html((new Date()).getFullYear());
+	
+	// 绑定隐藏事件
+	$('#code').bind('hide',function(e){
+		// 调整 submit 位置
+		$('#submit').css('top',248);
+	});
+	$('#code').bind('show',function(e){
+		// 调整 submit 位置
+		$('#submit').css('top',281);
+	});
+	
+	// 显示验证码
+	if(codeInputCount < 3){
+		// 隐藏验证
+		$('#code').hide(0,function(e){
+			$(this).first().trigger("hide")
+		});
+		$('#codeImg').hide();
+	}
+	
+	// 验证码刷新
+	$('#codeImg').click(function(e){
+		var phphref = '';
+		// 处理 ? 
+		var io = this.src.indexOf('?');
+		// 找到 ? 下标
+		if(io > -1){
+			phphref = this.src.substring(0,io);
+		}else{
+			phphref = this.src;
+		}
+		// 赋值
+		this.src = phphref +'?'+new Date().getTime();
+	});
+	
+	// 键盘监听
+	$("input").keydown(function(eventObject){
+		// Enter 输入
+		if(eventObject.keyCode == 13){
+			// 提交数据
+			submitForm();
+		}
+	});
+	
+	
+	// 点击提交
+	$('#submit').click(function(e){
+				
+		// 提交数据
+		submitForm();
+		
+/*
+
+		// 获取内容
+		var sUserName = $('input[name=username]').val();
+		var sPassword = $('input[name=password]').val();
+		var sCode = $('#code').val();
+
+		// 提交数据
+		$.ajax({
+			type : "POST",
+			url : baseHref+"resources/data/login/Login.php",
+			data : {
+				userName : sUserName,
+				passWord : sPassword,
+				code : sCode,
+				_dc : new Date().getTime()
+			},
+			timeout : 120000,
+			error : function(xhr) {
+				// 出错处理
+			},
+			success : function(pMsg) {
+				// 请求同返回内容
+				var result = eval("(" + pMsg + ")");
+				// 标记
+				switch(result.loginFlag){
+					case 0 :
+						// 验证码不正解
+						$('#code').focus();
+						// 清空内容
+						$('#code').val('');
+						break;
+					case 1 :
+						// 用户名或密码不正解
+						$('input[name=username]').focus();
+						// 清空内容
+						$('input[name=password]').val('');
+						break;
+					case 2 :
+						// 管理员登录
+						var _href = "main.php" + result.encodeName;;
+						
+						// 用户登录
+						if (result.userType == "user") {
+							_href = "UserCenter/index.php"
+						}
+													
+						window.location.replace( baseHref + _href);
+						break;
+					default:
+						break;
+				}
+				// 错误次数
+				var count = parseInt(result.loginTimes);
+				if(count > 3){
+					$('#codeImg').show();
+					$('#code').show();
+					$('#code').first().trigger("show");
+				}
+			}
+		});
+*/
+
+	});
+	
+});
+
+var browser = {
+	versions : function() {
+		var u = navigator.userAgent, app = navigator.appVersion;
+		return {//移动终端浏览器版本信息                                
+		trident : u.indexOf('Trident') > -1, //IE内核                                
+		presto : u.indexOf('Presto') > -1, //opera内核                                
+		webKit : u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核                                
+		gecko : u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核                               
+		mobile : !!u.match(/AppleWebKit.*Mobile.*/)
+				|| !!u.match(/AppleWebKit/), //是否为移动终端                                
+		ios : !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端                
+		android : u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器                                
+		iPhone : u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者QQHD浏览器                   
+		iPad: u.indexOf('iPad') > -1, //是否iPad      
+		webApp : u.indexOf('Safari') == -1,//是否web应该程序，没有头部与底部
+		google:u.indexOf('Chrome')>-1
+	};
+	}(),
+	language : (navigator.browserLanguage || navigator.language).toLowerCase()
+}
+
+//alert("语言版本: "+browser.language);
+//alert(" 是否为移动终端: "+browser.versions.mobile);
+if(browser.versions.mobile){
+	$('.img').hide();
+}
+
+</script>
+<!--[if IE 6]>
+<script type="text/javascript">
+function correctPNG()
+{
+for(var i=0; i<document.images.length; i++)
+{
+var img = document.images[i];
+var imgName = img.src.toUpperCase();
+if (imgName.substring(imgName.length-3, imgName.length) == "PNG")
+{
+var imgID = (img.id) ? "id="" + img.id + "" " : "";
+var imgClass = (img.className) ? "class="" + img.className + "" " : "";
+var imgTitle = (img.title) ? "title="\" + img.title + "" " : "title="\" + img.alt + "" ";
+var imgStyle = "display:inline-block;" + img.style.cssText;
+if (img.align == "left") imgStyle = "float:left;" + imgStyle;
+if (img.align == "right") imgStyle = "float:right;" + imgStyle;
+if (img.parentElement.href) imgStyle = "cursor:hand;" + imgStyle;
+var strNewHTML = "<span "+ imgID + imgClass + imgTitle + "style=\"" + "width:" + img.width + "px; height:" + img.height + "px;" + imgStyle + ";"
++ "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader" + "(src="" + img.src + "", sizingMethod="scale");\"></span>";
+img.outerHTML = strNewHTML;
+i = i-1;
+}
+}
+}
+window.attachEvent("onload", correctPNG);
+</script>
+<![endif]--> ​
+
 
 </body>
 </html>

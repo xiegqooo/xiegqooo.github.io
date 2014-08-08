@@ -1,0 +1,153 @@
+@charset "utf-8";
+/* CSS Document */
+
+/***
+ * 功能描述：登录页面基本样式
+ * 编写人：谢广泉
+ * 编写日期：2014-08-01 10:29
+ */
+
+/*清除基本样式*/
+html,body{
+	margin:0px;padding:0px;
+}
+
+body{
+	background:#F1F1F1;	
+	/*overflow-y: scroll;*/
+}
+
+/* header 高度*/
+.header{
+	background:#03517B url(../image/header.png);
+	height:64px;
+	width:100%;
+	position:fixed; /* 滚动条 bug 修复*/
+	top:0px;
+	line-height:64px;
+}
+
+.header img{
+	/* 37 - 27*/
+	margin:14px 0 0 40px;
+}
+
+/*内容*/
+.context{
+	text-align:center;
+	position:absolute;
+/*	overflow-y: scroll;*/
+	top:50%;
+	height:440px;
+	width:100%;
+	margin:-180px 0 0 0;
+	/*overflow-x:hidden;*/
+}
+
+.context .center{
+	width:1040px; 
+	margin:0 auto;
+}
+
+.context .center .img{
+	float:left;
+	width:690px;
+}
+
+.context .center .login{
+	float:left;
+	width:326px;
+	height:330px;
+	position:relative;
+	margin:0 0 0 14px;
+	background: url(../image/login-bg.png);
+}
+
+.context .center .login .username{
+	position:absolute;
+	border:1px solid #D0D0D0;
+	background:#F1F1F1;
+	top:115px;	
+	left:39px;
+	height:30px;
+	line-height:30px;
+	font-size:20px;
+	width:246px;
+}
+.context .center .login .passowrd{
+	position:absolute;
+	top:182px;
+	left:39px;
+	border:1px solid #D0D0D0;
+	background:#F1F1F1;
+	line-height:30px;
+	font-size:20px;
+	height:30px;
+	width:246px;
+}
+
+#code{
+	position:absolute;
+	top:232px;
+	left:39px;
+	background:#F1F1F1;
+	border:1px solid #D0D0D0;
+	height:30px;
+	line-height:30px;
+	font-size:20px;
+	width:94px;
+}
+
+.context .center .login img{
+	position:absolute;
+	cursor:pointer;
+	top:232px;
+	left:146px;
+	height:36px;
+}
+
+.context .center .login .submit{
+	background:url(../image/submit.png);
+	position:absolute;
+	cursor:pointer;
+	top:281px;
+	left:39px;
+	border:none;
+	width:250px;
+	height:32px;
+}
+
+/*底边*/
+.footer{
+	background:#E1E1E1 url(../image/footer.png);
+	height:40px;
+	width:100%;
+	position:fixed;
+	line-height:40px;
+	text-align:center;
+	bottom:0px;
+	color:#696972;
+	font-size:13px;
+	font-weight:bold;
+	/*font-family:'微软雅黑 宋体';*/
+	font-family:'Verdana, Arial, 宋体';
+
+	
+}
+.footer img{
+	margin-top:10px;
+}
+
+.hide {display:none;}
+.show {display:block;}
+
+.error { border:1px solid red; color:red;}
+.warning { border:1px solid green; color:green;}
+
+.info-bar {
+	background:#03517B;opacity:.7;filter:alpha(opacity=70);box-shadow: 3px 3px 5px #F8F8F8;
+	position:fixed; right:15px; top:82px; padding:10px 20px 10px 10px; color:#FFF; max-width: 220px;}
+.info-bar sup {position:absolute; top:3px; right:3px; cursor:pointer; width:18px; height:18px;text-align: center;line-height: 18px;}
+
+.loading-bar{position:fixed;bottom:40px;width:100%;height:5px;opacity:.7;filter:alpha(opacity=70);font-size:0;}
+.loading-bar div {position:absolute;width:0;left:0;top:0;height:5px;font-size: 0;/*background:green;*/background:#03517B;}
