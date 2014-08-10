@@ -208,69 +208,6 @@ $(document).ready(function(e) {
 				
 		// 提交数据
 		submitForm();
-		
-/*
-
-		// 获取内容
-		var sUserName = $('input[name=username]').val();
-		var sPassword = $('input[name=password]').val();
-		var sCode = $('#code').val();
-
-		// 提交数据
-		$.ajax({
-			type : "POST",
-			url : baseHref+"resources/data/login/Login.php",
-			data : {
-				userName : sUserName,
-				passWord : sPassword,
-				code : sCode,
-				_dc : new Date().getTime()
-			},
-			timeout : 120000,
-			error : function(xhr) {
-				// 出错处理
-			},
-			success : function(pMsg) {
-				// 请求同返回内容
-				var result = eval("(" + pMsg + ")");
-				// 标记
-				switch(result.loginFlag){
-					case 0 :
-						// 验证码不正解
-						$('#code').focus();
-						// 清空内容
-						$('#code').val('');
-						break;
-					case 1 :
-						// 用户名或密码不正解
-						$('input[name=username]').focus();
-						// 清空内容
-						$('input[name=password]').val('');
-						break;
-					case 2 :
-						// 管理员登录
-						var _href = "main.php" + result.encodeName;;
-						
-						// 用户登录
-						if (result.userType == "user") {
-							_href = "UserCenter/index.php"
-						}
-													
-						window.location.replace( baseHref + _href);
-						break;
-					default:
-						break;
-				}
-				// 错误次数
-				var count = parseInt(result.loginTimes);
-				if(count > 3){
-					$('#codeImg').show();
-					$('#code').show();
-					$('#code').first().trigger("show");
-				}
-			}
-		});
-*/
 
 	});
 	
@@ -301,6 +238,7 @@ var browser = {
 //alert(" 是否为移动终端: "+browser.versions.mobile);
 if(browser.versions.mobile){
 	$('.img').hide();
+	$('.center').width('100%');
 }
 
 </script>
@@ -331,7 +269,6 @@ i = i-1;
 window.attachEvent("onload", correctPNG);
 </script>
 <![endif]--> ​
-
 
 </body>
 </html>

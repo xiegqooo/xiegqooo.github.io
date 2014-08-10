@@ -54,6 +54,21 @@ body{
 	width:690px;
 }
 
+input{
+	height:30px;
+	line-height:30px;
+	font-size:20px;
+	width:246px;
+	border:1px solid #D0D0D0;
+}
+
+input:focus{ 
+	background-color:#fff;
+	border:1px solid #03517B;
+	background:#F1F1F1;
+	outline : none;
+}
+
 .context .center .login{
 	float:left;
 	width:326px;
@@ -65,36 +80,20 @@ body{
 
 .context .center .login .username{
 	position:absolute;
-	border:1px solid #D0D0D0;
-	background:#F1F1F1;
 	top:115px;	
 	left:39px;
-	height:30px;
-	line-height:30px;
-	font-size:20px;
-	width:246px;
+	
 }
 .context .center .login .passowrd{
 	position:absolute;
 	top:182px;
 	left:39px;
-	border:1px solid #D0D0D0;
-	background:#F1F1F1;
-	line-height:30px;
-	font-size:20px;
-	height:30px;
-	width:246px;
 }
 
 #code{
 	position:absolute;
 	top:232px;
 	left:39px;
-	background:#F1F1F1;
-	border:1px solid #D0D0D0;
-	height:30px;
-	line-height:30px;
-	font-size:20px;
 	width:94px;
 }
 
@@ -138,6 +137,7 @@ body{
 	margin-top:10px;
 }
 
+/* 提交操作显示 */
 .hide {display:none;}
 .show {display:block;}
 
