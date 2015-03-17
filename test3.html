@@ -25,29 +25,28 @@
 		left:0;
 		bottom:0;
 		width:100%;
-		background:#ff0;
 	}
 	#modl{
 		position:fixed;
-		top:0;
+		left:0;
 		right:0;
 		bottom:0;
-		width:0%;
+		height:0%;
 		background:#707070;
 		z-index:1;
-		transition: width 2s;
+		transition: height 2s;
 		background: rgba(112,112,112,0.6);
 	}
 	
 	#level{
 		position:absolute;
-		top:0;
+		left:0;
 		right:0;
-		bottom:0;
-		width:0%;
+		bottom:-400px;
+		height:400px;
 		background:#f0f0f0;
 		z-index:1;
-		transition: width 2s;		
+		transition: bottom 2s;		
 	}
 	.level__panel{
 		height:100%;
@@ -101,7 +100,53 @@
 		border-left:1px solid #ddd;
 	}
 
+	/* 横 */
+	.horizontal-modle{
+		position:fixed;
+		right:0;
+		width:0%;
+		background:#707070;
+		transition: width 2s;
+		background: rgba(112,112,112,0.6);
+	}
 	
+	.horizontal-level{
+		position:absolute;
+		right:-400px;
+		width:400px;
+		background:#f0f0f0;
+		transition: right 2s;		
+	}
+	
+	.horizontal-modle,.horizontal-level{
+		top:0;
+		bottom:0;
+		z-index:1;
+	}
+	/* 竖 */
+	.vertical-modle{
+		position:fixed;
+		bottom:0;
+		height:0%;
+		background:#707070;
+		transition: height 2s;
+		background: rgba(112,112,112,0.6);
+	}
+	
+	.vertical-level{
+		position:absolute;
+		bottom:-400px;
+		height:400px;
+		background:#f0f0f0;
+		transition: bottom 2s;		
+	}
+	
+	.vertical-modle,.vertical-level{
+		left:0;
+		right:0;
+		z-index:1;
+	}
+
 </style>
 
 </head>
@@ -109,77 +154,45 @@
 
 
 <div id="wrapper">
-	<a id="trigger" href="javascript:;" >打开</a>
-	<a href="javascript:close();" >关闭</a>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
-	1<br/>
+	
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<a class="list__item list__item--current" id="trigger" href="javascript:;" >竖</a>
+	<a class="list__item list__item--current" href="javascript:tv.open();" >其他方式</a>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<a class="list__item list__item--current" href="javascript:;" id="horizontal-trigger">横</a>
+	<a class="list__item list__item--current" href="javascript:th.open();" >其他方式</a>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
 </div>
 
 <div id="modl">
 	<div id="level">
 		<div class="level__panel level__panel--first">
 			<ul class="list">
-				<li class="list__item--bottom list__item--current"><a class="list__item list__item--current" href="#">皮肤用药</a></li>
+				<li class="list__item--bottom list__item--current"><a class="list__item list__item--current" href="javascript:th.open();" >皮肤用药</a></li>
 				<li class="list__item--bottom"><a class="list__item" href="#">肠胃用药</a></li>
 				<li class="list__item--bottom"><a class="list__item" href="#">感冒肠胃用药肠胃用药肠胃用药肠胃用药肠胃用药肠胃用药肠胃用药肠胃用药</a></li>
 				<li class="list__item--bottom"><a class="list__item" href="#">感冒</a></li>
@@ -227,51 +240,16 @@
 				<li class="list__item--bottom"><a class="list__item" href="#">感冒</a></li>
 			</ul>
 		</div>
-		<div class="level__panel level__panel--second">
-			<ul class="list list--left">
-				<li><a class="list__item list__item--hover" href="#">皮肤瘙痒</a></li>
-				<li><a class="list__item list__item--hover" href="#">青春痘</a></li>
-				<li><a class="list__item list__item--hover" href="#">蚊虫叮咬</a></li>
-				<li><a class="list__item list__item--hover" href="#">蚊虫叮咬</a></li>
-				<li><a class="list__item list__item--hover" href="#">蚊虫叮咬</a></li>
-				<li><a class="list__item list__item--hover" href="#">蚊虫叮咬</a></li>
-				<li><a class="list__item list__item--hover" href="#">蚊虫叮咬</a></li>
-				<li><a class="list__item list__item--hover" href="#">蚊虫叮咬</a></li>
-				<li><a class="list__item list__item--hover" href="#">蚊虫叮咬</a></li>
-				<li><a class="list__item list__item--hover" href="#">蚊虫叮咬</a></li>
-				<li><a class="list__item list__item--hover" href="#">蚊虫叮咬</a></li>
-				<li><a class="list__item list__item--hover" href="#">蚊虫叮咬</a></li>
-				<li><a class="list__item list__item--hover" href="#">蚊虫叮咬</a></li>
-				<li><a class="list__item list__item--hover" href="#">蚊虫叮咬</a></li>
-				<li><a class="list__item list__item--hover" href="#">蚊虫叮咬</a></li>
-				<li><a class="list__item list__item--hover" href="#">蚊虫叮咬</a></li>
-				<li><a class="list__item list__item--hover" href="#">蚊虫叮咬</a></li>
-				<li><a class="list__item list__item--hover" href="#">蚊虫叮咬</a></li>
-				<li><a class="list__item list__item--hover" href="#">蚊虫叮咬</a></li>
-				<li><a class="list__item list__item--hover" href="#">蚊虫叮咬</a></li>
-				<li><a class="list__item list__item--hover" href="#">蚊虫叮咬</a></li>
-				<li><a class="list__item list__item--hover" href="#">蚊虫叮咬</a></li>
-				<li><a class="list__item list__item--hover" href="#">蚊虫叮咬</a></li>
-				<li><a class="list__item list__item--hover" href="#">蚊虫叮咬</a></li>
-				<li><a class="list__item list__item--hover" href="#">蚊虫叮咬</a></li>
-				<li><a class="list__item list__item--hover" href="#">蚊虫叮咬</a></li>
-				<li><a class="list__item list__item--hover" href="#">蚊虫叮咬</a></li>
-				<li><a class="list__item list__item--hover" href="#">蚊虫叮咬</a></li>
-				<li><a class="list__item list__item--hover" href="#">蚊虫叮咬</a></li>
-				<li><a class="list__item list__item--hover" href="#">蚊虫叮咬</a></li>
-				<li><a class="list__item list__item--hover" href="#">蚊虫叮咬</a></li>
-				<li><a class="list__item list__item--hover" href="#">蚊虫叮咬</a></li>
-				<li><a class="list__item list__item--hover" href="#">蚊虫叮咬</a></li>
-				<li><a class="list__item list__item--hover" href="#">蚊虫叮咬</a></li>
-				<li><a class="list__item list__item--hover" href="#">蚊虫叮咬</a></li>
-				<li><a class="list__item list__item--hover" href="#">蚊虫叮咬</a></li>
-				<li><a class="list__item list__item--hover" href="#">蚊虫叮咬</a></li>
-				<li><a class="list__item list__item--hover" href="#">蚊虫叮咬</a></li>
-				<li><a class="list__item list__item--hover" href="#">蚊虫叮咬</a></li>
-			</ul>
-		</div>
+		
 	</div>
 
+</div>
+
+
+<div id="horizontal-modle" class="horizontal-modle">
+	<div id="horizontal-level" class="horizontal-level" >
+		1111111111
+	</div>
 </div>
 
 
@@ -279,33 +257,9 @@
 <script src="scripts/broadside.js"></script>
 
 <script type="text/javascript">
+var tv = $('#trigger').broadside({module:'#modl',floor:'#level',orientation:'vertical'});
+var th = $('#horizontal-trigger').broadside({module:'#horizontal-modle',floor:'#horizontal-level',orientation:'horizontal'});
 
-/*
-function open(){
-	$('.modl-warp').show();
-	$('#modl').css('width','100%');
-	$('#level').css('width','80%');
-}
-function close(){
-	$('#modl').css('width','0%');
-	$('#level').css('width','0%');
-	$('.modl-warp').hide();
-}
-
-$('#level').bind('click',function(e){
-  if ( e && e.preventDefault ) 
-        e.preventDefault(); 
-    else 
-        window.event.returnValue = false; 
-        
-    return false; 
-});
-
-$('#modl').bind('click',function(){
-	close();
-});
-*/
-$('#trigger').broadside({module:'#modl',floor:'#level'});
 document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 
 </script>

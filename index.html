@@ -4,19 +4,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width , initial-scale=1.0 , user-scalable=0 , minimum-scale=1.0 , maximum-scale=1.0" />
 <title>贝安移动安全管理系统</title>
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/tools.js"></script>
+<link rel="stylesheet" type="text/css" href="styles/style.css">
+<script type="text/javascript" src="scripts/jquery.min.js"></script>
+<script type="text/javascript" src="scripts/tools.js"></script>
 </head> 
 <body> 
 <!-- header -->
     <div class="header">
-        <img  src="image/logo.png" alt="贝安移动" title="贝安移动管理" height="38" width="304">
+        <img  src="images/logo.png" alt="贝安移动" title="贝安移动管理" height="38" width="304">
     </div>
 <!-- context -->    
     <div class="context">
     	<div  class="center">
-            <div class="img"><img src="image/billboard.png" height="330" width="690"/></div>        
+            <div class="img"><img src="images/billboard.png" height="330" width="690"/></div>        
             <div class="login">
          
                 	<input class="username" name="username" />
@@ -32,7 +32,7 @@
     <div class="footer">
        Copyright &copy; 联信摩贝软件(北京)有限公司 2008-<span id="lastyear"></span> 版权所有
       
-<!--         <img src="image/footer-barr.png" alt="联信摩贝软件(北京)有限公司"/> -->
+<!--         <img src="images/footer-barr.png" alt="联信摩贝软件(北京)有限公司"/> -->
     </div>
 	
 <!-- 提交提示 -->
@@ -213,42 +213,14 @@ $(document).ready(function(e) {
 	
 });
 
-var browser = {
-	versions : function() {
-		var u = navigator.userAgent, app = navigator.appVersion;
-		return {//移动终端浏览器版本信息                                
-		trident : u.indexOf('Trident') > -1, //IE内核                                
-		presto : u.indexOf('Presto') > -1, //opera内核                                
-		webKit : u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核                                
-		gecko : u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核                               
-		mobile : !!u.match(/AppleWebKit.*Mobile.*/)
-				|| !!u.match(/AppleWebKit/), //是否为移动终端                                
-		ios : !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端                
-		android : u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器                                
-		iPhone : u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者QQHD浏览器                   
-		iPad: u.indexOf('iPad') > -1, //是否iPad      
-		webApp : u.indexOf('Safari') == -1,//是否web应该程序，没有头部与底部
-		google:u.indexOf('Chrome')>-1
-	};
-	}(),
-	language : (navigator.browserLanguage || navigator.language).toLowerCase()
-}
-
-//alert("语言版本: "+browser.language);
-//alert(" 是否为移动终端: "+browser.versions.mobile);
-if(browser.versions.mobile){
-	$('.img').hide();
-	$('.center').width('100%');
-}
-
 </script>
 <!--[if IE 6]>
 <script type="text/javascript">
 function correctPNG()
 {
-for(var i=0; i<document.images.length; i++)
+for(var i=0; i<document.imagess.length; i++)
 {
-var img = document.images[i];
+var img = document.imagess[i];
 var imgName = img.src.toUpperCase();
 if (imgName.substring(imgName.length-3, imgName.length) == "PNG")
 {
@@ -260,7 +232,7 @@ if (img.align == "left") imgStyle = "float:left;" + imgStyle;
 if (img.align == "right") imgStyle = "float:right;" + imgStyle;
 if (img.parentElement.href) imgStyle = "cursor:hand;" + imgStyle;
 var strNewHTML = "<span "+ imgID + imgClass + imgTitle + "style=\"" + "width:" + img.width + "px; height:" + img.height + "px;" + imgStyle + ";"
-+ "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader" + "(src="" + img.src + "", sizingMethod="scale");\"></span>";
++ "filter:progid:DXimagesTransform.Microsoft.AlphaimagesLoader" + "(src="" + img.src + "", sizingMethod="scale");\"></span>";
 img.outerHTML = strNewHTML;
 i = i-1;
 }

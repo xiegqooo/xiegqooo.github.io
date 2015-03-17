@@ -19,7 +19,7 @@ body{
 
 /* header 高度*/
 .header{
-	background:#03517B url(../image/header.png);
+	background:#03517B url(../images/header.png);
 	height:64px;
 	width:100%;
 	position:fixed; /* 滚动条 bug 修复*/
@@ -75,7 +75,7 @@ input:focus{
 	height:330px;
 	position:relative;
 	margin:0 0 0 14px;
-	background: url(../image/login-bg.png);
+	background: url(../images/login-bg.png);
 }
 
 .context .center .login .username{
@@ -106,7 +106,7 @@ input:focus{
 }
 
 .context .center .login .submit{
-	background:url(../image/submit.png);
+	background:url(../images/submit.png);
 	position:absolute;
 	cursor:pointer;
 	top:281px;
@@ -118,7 +118,7 @@ input:focus{
 
 /*底边*/
 .footer{
-	background:#E1E1E1 url(../image/footer.png);
+	background:#E1E1E1 url(../images/footer.png);
 	height:40px;
 	width:100%;
 	position:fixed;
